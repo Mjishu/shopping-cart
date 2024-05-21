@@ -1,8 +1,8 @@
-Components: 
-    One for the shopping items{image,name,quantity,description}
+<!-- Components:  -->
+    <!-- One for the shopping items{image,name,quantity,description} -->
 
-Navbar
-    make a navbar that shows up on every page that has links to the shopping page and the home page
+<!-- Navbar
+    make a navbar that shows up on every page that has links to the shopping page and the home page -->
 
 Pages:
     Home page that displays the name of the shop, i think i should do a classic website where they have the name 

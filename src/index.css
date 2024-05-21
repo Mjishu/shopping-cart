@@ -19,3 +19,15 @@ body{
   margin: 1rem 2rem;
   text-align: center;
 }
+
+header{
+  background-color: rgb(241, 241, 241);
+  height: 2.5rem;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.Navbar-link{
+  text-decoration: none;
+  margin: 0 1rem;
+}
