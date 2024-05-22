@@ -11,7 +11,7 @@ const routes = [
     },
     {
         path:"/store"
-        ,element:<Shopping/>
+        ,element:<App/>
     }
 ]
 

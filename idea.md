@@ -16,3 +16,6 @@ Get shop items from FakeStore API?
 
 TODO:
     find how to make the items button and price line up with eachother, rn they are all lopsided
+
+I dont know where to make the cart?
+    should i do it with the split page so if you go to cart from either store or home page then it shows the cart on the side of the screen?

@@ -1,13 +1,14 @@
 import React from "react";
 import Item from "../components/Item"
-import {nanoid} from "nanoid"
-import { Link } from "react-router-dom";
+// import {nanoid} from "nanoid"
+// import { Link } from "react-router-dom";
 import Navbar from "./Navbar";
 
-export default function Shopping(){
+export default function Shopping(props){
     const [itemInfo, setItemInfo] = React.useState([])
     const [loading,setLoading] = React.useState(true)
     const [error,setError] = React.useState(null)
+    
     
     React.useEffect(()=>{
         async function fetchData(){
@@ -23,7 +24,12 @@ export default function Shopping(){
         }
         fetchData()
     },[])
-    console.log(itemInfo)
+    
+    function handleClick(id){
+        const itemFound = itemInfo.find(item => item.id === id)    
+        props.setCart(prevCart => ([...prevCart, {title:itemFound.title, image:itemFound.image , id: itemFound.id, price:itemFound.price}]))
+        
+        }
 
     const itemsMapped = itemInfo.map(item =>(
         <Item 
@@ -33,12 +39,18 @@ export default function Shopping(){
             description={item.description}
             imageUrl={item.image}
             id={item.id}
+            handleClick={handleClick}
         />
     ))
 
+    if(loading){
+        return (
+            <p>Loading...</p>
+        )
+    }
+
     return(
         <div >
-            <Navbar/>
             <div className="content">
                 <div className="items-map">
                     {itemsMapped}
