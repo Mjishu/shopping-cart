@@ -8,13 +8,19 @@ export default function Cart(props){
                 <img src={item.image} alt="item image" width="220" height="220"/>
                 <h3> {item.title}</h3>
                 <p>${item.price}</p>
+                <div>
+                    <button onChange={()=>console.log("-")}>-</button>
+                    <input className="amount" type="text" placeholder="0" />
+                    <button onChange={()=>console.log("+")}>+</button>
+                </div>
             </div>
         )  
     })
 
     return (
         <div className="cart-items">
-            {cartMapped}
+            {props.cart.length >= 1 ? cartMapped : "Cart is empty"}
+
         </div>
     )
 }

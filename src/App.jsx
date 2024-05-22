@@ -7,7 +7,7 @@ import Navbar from './components/Navbar'
 import { Routes,Route, Outlet } from 'react-router-dom'
 
 function App() {
-  const [cart, setCart] = React.useState([])
+  const [cart, setCart] = React.useState( JSON.parse(localStorage.getItem("cartItems")) ||[])
 
   React.useEffect(()=>{
     console.log(cart)

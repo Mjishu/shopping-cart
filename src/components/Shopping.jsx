@@ -27,7 +27,7 @@ export default function Shopping(props){
     
     function handleClick(id){
         const itemFound = itemInfo.find(item => item.id === id)    
-        props.setCart(prevCart => ([...prevCart, {title:itemFound.title, image:itemFound.image , id: itemFound.id, price:itemFound.price}]))
+        props.setCart(prevCart => ([...prevCart, {title:itemFound.title, image:itemFound.image , id: itemFound.id, price:itemFound.price, }]))
         
         }
 
