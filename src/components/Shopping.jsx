@@ -5,60 +5,44 @@ import { Link } from "react-router-dom";
 import Navbar from "./Navbar";
 
 export default function Shopping(){
-    const [itemInfo, setItemInfo] = React.useState(newItems())
+    const [itemInfo, setItemInfo] = React.useState([])
     const [loading,setLoading] = React.useState(true)
     const [error,setError] = React.useState(null)
-
-    function generateItem(){ //! Change this later to be blank and then update it based on api
-        return {
-            imageUrl: "https://picsum.photos/seed/picsum/200/300",
-            name: "Item",
-            price: "10.00",
-            description: "This is the description of an item",
-            category:"",
-            id:null
-        }
-    }
-
-    function newItems() {
-        const newItemArr = []
-        for (let i=0;i<3;i++){
-            newItemArr.push(generateItem())
-        }
-        return newItemArr
-    }
     
     React.useEffect(()=>{
         async function fetchData(){
             try{
-                const updatedItem = await Promise.all(itemInfo.map(async(item)=>{
                     const response = await fetch("https://fakestoreapi.com/products/")
                     const data = await response.json();
-                    return {...item, imageUrl:data.image, name:data.title,price:data.price,description:data.description, category:data.category,id:data.id}
-                }))
-                setItemInfo(updatedItem)
+                    setItemInfo(data);
             }catch(error){
                 console.error("error fetching data", error)
+            }finally{
+                setLoading(false)
             }
         }
         fetchData()
     },[])
+    console.log(itemInfo)
 
     const itemsMapped = itemInfo.map(item =>(
         <Item 
-            name={item.name}
+            name={item.title}
             key={item.id}
             price={item.price}
             description={item.description}
-            imageUrl={item.imageUrl}
+            imageUrl={item.image}
+            id={item.id}
         />
     ))
 
     return(
         <div >
             <Navbar/>
-            <div className="items-map">
-                {itemsMapped}
+            <div className="content">
+                <div className="items-map">
+                    {itemsMapped}
+                </div>
             </div>
         </div>
         //! Change this to a navbar

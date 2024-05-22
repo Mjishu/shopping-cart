@@ -12,12 +12,22 @@ body{
 }
 
 .items-map{
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  grid-template-rows: repeat(5,1fr);
+  max-width: 80rem;
 }
 
 .item-holder{
   margin: 1rem 2rem;
   text-align: center;
+  max-width: 15rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  border: 1px solid rgb(202, 196, 196);
+  border-radius: 10px;
 }
 
 header{
@@ -30,4 +40,8 @@ header{
 .Navbar-link{
   text-decoration: none;
   margin: 0 1rem;
+}
+
+header{
+    font-size: 1.5rem;
 }

@@ -14,3 +14,5 @@ Pages:
 
 Get shop items from FakeStore API?
 
+TODO:
+    find how to make the items button and price line up with eachother, rn they are all lopsided
