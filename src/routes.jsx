@@ -1,7 +1,8 @@
 import App from "./App";
 import Home from "./components/Home";
-import Shopping from "./components/Shopping";
+// import Shopping from "./components/Shopping";
 import ErrorPage from "./components/ErrorPage";
+// import Cart from "./components/Cart";
 
 const routes = [
     {
@@ -11,8 +12,13 @@ const routes = [
     },
     {
         path:"/store"
-        ,element:<App/>
-    }
+        ,element:<App/>,
+        children:[
+            {
+                path:"cart",
+            }
+        ]
+    },
 ]
 
 export default routes

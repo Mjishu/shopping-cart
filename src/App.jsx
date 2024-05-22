@@ -4,6 +4,7 @@ import Cart from './components/Cart'
 import React from 'react'
 import './App.css'
 import Navbar from './components/Navbar'
+import { Routes,Route, Outlet } from 'react-router-dom'
 
 function App() {
   const [cart, setCart] = React.useState([])
@@ -15,7 +16,12 @@ function App() {
   return (
     <div>
       <Navbar/>
-      <Shopping cart={cart} setCart={setCart}/>
+      {/* <Shopping cart={cart} setCart={setCart}/> */}
+      <Routes>
+        <Route path="/" element={<Shopping cart={cart} setCart={setCart}/>}/>
+        <Route path="cart" element={<Cart cart={cart} setCart={setCart}/>}/>
+      </Routes>
+      <Outlet />
     </div>
   )
 }

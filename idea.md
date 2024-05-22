@@ -19,3 +19,5 @@ TODO:
 
 I dont know where to make the cart?
     should i do it with the split page so if you go to cart from either store or home page then it shows the cart on the side of the screen?
+
+    I have it as another page, but i would like it so it shows up on the right half of the store page; bc i think checkout should be its own page not cart
