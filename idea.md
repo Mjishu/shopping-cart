@@ -1,25 +1,15 @@
-<!-- Components:  -->
-    <!-- One for the shopping items{image,name,quantity,description} -->
 
-<!-- Navbar
-    make a navbar that shows up on every page that has links to the shopping page and the home page -->
-
-Pages:
-    Home page that displays the name of the shop, i think i should do a classic website where they have the name 
-        then the link to the shopping place, street address and all the other links to contact or whatever
-    Shopping page that shows all the items in a flex/grid order; and has an add to cart item
-
-    Maybe make a page that shows items in a cart? idk how id do this without a storage tho, maybe use localStorage?
-
-
-Get shop items from FakeStore API?
 
 TODO:
     find how to make the items button and price line up with eachother, rn they are all lopsided
 
-I dont know where to make the cart?
-    should i do it with the split page so if you go to cart from either store or home page then it shows the cart on the side of the screen?
-
-    I have it as another page, but i would like it so it shows up on the right half of the store page; bc i think checkout should be its own page not cart
-
 store cart items in local storage and add delete button
+
+
+UPDATES:
+
+    so i got carts to be a toggle button, but now its really a pain in the ass to use, i want to make its own split page like most websites do i think?
+        HOMEWORK: Go look at other websites and see how their carts work(only if its the kind of cart i want)
+            - And reRead the section on nested routes in odin project!
+    -----
+        Maybe make it so that it conditionally renders a page based on if cart was clicked and that page loads on the right side? i might be getting the wrong idea but i think the route i need to go down is nested routes? 

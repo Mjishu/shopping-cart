@@ -8,20 +8,23 @@ import { Routes,Route, Outlet } from 'react-router-dom'
 
 function App() {
   const [cart, setCart] = React.useState( JSON.parse(localStorage.getItem("cartItems")) ||[])
+  const [isCartVisible,setIsCartVisible] = React.useState(false);
 
-  React.useEffect(()=>{
-    console.log(cart)
-},[cart])
+  function toggleCart(){
+    setIsCartVisible(!isCartVisible)
+    console.log(isCartVisible)
+  }
+
+//   React.useEffect(()=>{
+//     console.log(cart)
+// },[cart])
 
   return (
     <div>
-      <Navbar/>
+      <Navbar toggleCart={toggleCart}/>
       {/* <Shopping cart={cart} setCart={setCart}/> */}
-      <Routes>
-        <Route path="/" element={<Shopping cart={cart} setCart={setCart}/>}/>
-        <Route path="cart" element={<Cart cart={cart} setCart={setCart}/>}/>
-      </Routes>
-      <Outlet />
+        <Shopping cart={cart} setCart={setCart} isCartVisible={isCartVisible}/>
+      {/* <Outlet /> */}
     </div>
   )
 }

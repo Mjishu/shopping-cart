@@ -1,8 +1,9 @@
 import React from "react";
 import Item from "../components/Item"
+import Cart from "./Cart";
 // import {nanoid} from "nanoid"
 // import { Link } from "react-router-dom";
-import Navbar from "./Navbar";
+// import Navbar from "./Navbar";
 
 export default function Shopping(props){
     const [itemInfo, setItemInfo] = React.useState([])
@@ -43,6 +44,12 @@ export default function Shopping(props){
         />
     ))
 
+    function handleDelete(id){ //! causing errors||| this deletes items from itemInfo and not the cart!
+        const newCart = props.cart.filter(item => item.id !== id)
+        // setItemInfo(newItems)
+        props.setCart(newCart)
+    }
+
     if(loading){
         return (
             <p>Loading...</p>
@@ -55,6 +62,7 @@ export default function Shopping(props){
                 <div className="items-map">
                     {itemsMapped}
                 </div>
+                {props.isCartVisible && <Cart cart={props.cart} setCart={props.setCart} handleDelete={handleDelete}/>}
             </div>
         </div>
         //! Change this to a navbar

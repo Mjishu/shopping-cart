@@ -13,11 +13,6 @@ const routes = [
     {
         path:"/store"
         ,element:<App/>,
-        children:[
-            {
-                path:"cart",
-            }
-        ]
     },
 ]
 
