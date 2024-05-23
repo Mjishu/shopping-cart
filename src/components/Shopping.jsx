@@ -26,11 +26,29 @@ export default function Shopping(props){
         fetchData()
     },[])
     
-    function handleClick(id){
-        const itemFound = itemInfo.find(item => item.id === id)    
-        props.setCart(prevCart => ([...prevCart, {title:itemFound.title, image:itemFound.image , id: itemFound.id, price:itemFound.price, }]))
-        
+    function handleClick(id){ //! Check if item is already in cart first 
+        const itemFound = itemInfo.find(item => item.id === id)
+        const cartFound =props.cart.find(item => item.id ===id)
+
+        if (!cartFound) {
+            props.setCart(prevCart => ([
+                ...prevCart,
+                {
+                    title: itemFound.title,
+                    image: itemFound.image,
+                    id: itemFound.id,
+                    price: itemFound.price,
+                    amount: 1
+                }
+            ]));
+        } else {
+            props.setCart(prevCart => prevCart.map(item =>
+                item.id === id
+                    ? { ...item, amount: item.amount + 1 }
+                    : item
+            ));
         }
+    }
 
     const itemsMapped = itemInfo.map(item =>(
         <Item 
@@ -57,13 +75,13 @@ export default function Shopping(props){
     }
 
     return(
-        <div >
-            <div className="content">
+        <div className="shopping-page">
+            <div className="content ">
                 <div className="items-map">
                     {itemsMapped}
                 </div>
-                {props.isCartVisible && <Cart cart={props.cart} setCart={props.setCart} handleDelete={handleDelete}/>}
             </div>
+            {props.isCartVisible && <Cart cart={props.cart} setCart={props.setCart} handleDelete={handleDelete} itemsInCart={props.itemsInCart} setItemsInCart={props.setItemsInCart}/>}
         </div>
         //! Change this to a navbar
     )

@@ -38,6 +38,7 @@ header{
   position: sticky;
   width: 100%;
   top: 0;
+  z-index: 1;
 }
 
 .Navbar-link{
@@ -54,6 +55,7 @@ header{
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
 }
 
 .cart-items div{
@@ -73,7 +75,7 @@ header{
   display: flex;
   align-items: center;
   position: relative;
-  right: -10rem;
+  /* right: 20rem; */
   flex-direction: column;
   border: 1px solid rgb(225, 219, 235);
   border-radius: 10px;
@@ -94,4 +96,10 @@ header{
 
 .cart-image{
   width: 100px;
+}
+
+.shopping-page{
+  display: grid;
+  grid-template-columns:80% 20%;
+  
 }
